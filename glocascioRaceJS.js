@@ -1,5 +1,3 @@
-<script>
-
 var userBet = prompt("Place your bet! Who do you expect to win: rabbit, turtle, duck?");
 
 var Animal = function(n, s, f) {
@@ -23,7 +21,7 @@ var Animal = function(n, s, f) {
 
 var turtle = new Animal("Mitch McConnell",2,8.5);
 var rabbit = new Animal("Bunsauce Hoppalong",8,2);
-var duck = new Animal("Professor Quackingtons",5,5);
+var duck = new Animal("Professor Quackingtons",4,4);
 var winner
 
 while(turtle.notYetWon() && rabbit.notYetWon() && duck.notYetWon()) {
@@ -36,13 +34,13 @@ console.log(turtle.report());
 console.log(rabbit.report());
 console.log(duck.report());
 
-if (turtle.position>rabbit.position) {
+if (turtle.position>rabbit.position&&duck.position) {
   alert(turtle.name + " has won! Slow and steady proves victorious, but he should really think about retiring.");
   winner=("turtle");
-}else if (turtle.position<rabbit.position) {
+}else if (rabbit.position>turtle.position&&duck.position) {
   alert(rabbit.name + " is the winner! His ADHD medication must be helping.");
   winner=("rabbit");
-}else{ 
+}else if (duck.position>turtle.position&&rabbit.position) { 
   alert(duck.name + " won the race! Did somebody leave a breadcrum trail?");
   winner=("duck");
 };
@@ -52,6 +50,3 @@ if (userBet==winner) {
 }else{
   alert("You didn't win the bet. Don't visit Vegas.")
 };
-
-
-</script>
