@@ -4,32 +4,35 @@
 
   <head>
     <link rel="stylesheet" type="text/css" href="glocascioRaceCSS.css"> 
-    <title><h1>Welcome to Wacky Animal Racing!</h1></title>
+    <h1><title>Welcome to Wacky Animal Racing!</title></h1>
   </head>
 
   <body>
 
     <header>
-      <p>Welcome to GLocascio's Wacky Animal Racing page! Carefully review the racers below and place your bet on a winner in the prompt.</p>
+      <p id="welcome">Welcome to GLocascio's Wacky Animal Racing page! Carefully review the racers below and place your bet on a winner in the prompt.</p>
     </header>
 
     <ul>
 
       <li>
         <img src="https://speaker7.files.wordpress.com/2012/02/mitchmconnell.jpg">
-        <p>Senator Mitch McConnell, the turtle. Stats: 2 Speed, 8.5 Focus</p>
+        <p class="animalName"><em>Senator Mitch McConnell</em>, the <b>turtle</b>.</p>
+        <p><span>Stats: 2 Speed, 8.5 Focus</span></p>
         <p>Senior US Senator from Kentucky, Majority Leader of the Senate.</p>
       </li>
 
       <li>
         <img src="http://www.mintlawvets.co.uk/images/Rabbit.jpg">
-        <p>Bunsauce Hoppalong, the rabbit. Stats: 8 Speed, 2 Focus</p>
+        <p class="animalName"><em>Bunsauce Hoppalong</em>, the <b>rabbit</b>.</p>
+        <p><span>Stats: 8 Speed, 2 Focus</span></p>
         <p>Quick yet easily distracted, rabbits are less likely to run but cover greater distance.</p>
       </li>
 
       <li>
         <img src="http://kindersay.com/files/images/duck.png">
-        <p>Professor Quackingtons, the duck. Stats: 5 Speed, 5 Focus</p>
+        <p class="animalName"><em>Professor Quackingtons</em>, the <b>duck</b>.</p> 
+        <p><span>Stats: 5 Speed, 5 Focus</span></p>
         <p>The most balanced racer, and doctoral candidate of applied medical science in waterfowl.</p>
       </li>
 
@@ -38,6 +41,19 @@
     <footer>
     </footer>
 
-    <script type="text/javascript" src="glocascioRaceJS.js"></script>
+  <script type="text/javascript">
+    function downloadJSAtOnload() {
+    var element = document.createElement("script");
+    element.src = "glocascioRaceJS.js";
+    document.body.appendChild(element);
+    }
+    if (window.addEventListener)
+    window.addEventListener("load", downloadJSAtOnload, false);
+    else if (window.attachEvent)
+    window.attachEvent("onload", downloadJSAtOnload);
+    else window.onload = downloadJSAtOnload;
+  </script>
+
   </body>
+
 </html>

@@ -40,7 +40,7 @@ if (turtle.position>rabbit.position&&duck.position) {
 }else if (rabbit.position>turtle.position&&duck.position) {
   alert(rabbit.name + " is the winner! His ADHD medication must be helping.");
   winner=("rabbit");
-}else if (duck.position>turtle.position&&rabbit.position) { 
+}else{ 
   alert(duck.name + " won the race! Did somebody leave a breadcrum trail?");
   winner=("duck");
 };
