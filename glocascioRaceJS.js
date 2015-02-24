@@ -1,5 +1,5 @@
 $('#startRace').on('click', function() { 
-  var userBet = $('#pick');
+  var userBet = $('#pick').val();
 
   var Animal = function(n, s, f) {
     this.name = n;
@@ -35,14 +35,11 @@ $('#startRace').on('click', function() {
   console.log(rabbit.report());
   console.log(duck.report());
 
-  if (turtle.position>rabbit.position&&duck.position) {
-    alert(turtle.name + " has won! Slow and steady proves victorious, but he should really think about retiring.");
+  if (turtle.position > rabbit.position && turtle.position > duck.position) {
     winner=("turtle");
-  }else if (rabbit.position>turtle.position&&duck.position) {
-    alert(rabbit.name + " is the winner! His ADHD medication must be helping.");
+  }else if (rabbit.position > turtle.position && rabbit.position > duck.position) {
     winner=("rabbit");
   }else{ 
-    alert(duck.name + " won the race! Did somebody leave a breadcrum trail?");
     winner=("duck");
   };
 
@@ -51,5 +48,8 @@ $('#startRace').on('click', function() {
   }else{
     alert("You didn't win the bet. Don't visit Vegas.")
   };
-})
+
+  $('.racer').fadeOut();
+  $('#' + winner).stop();
+});
 
