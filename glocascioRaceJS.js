@@ -44,12 +44,15 @@ $('#startRace').on('click', function() {
   };
 
   if (userBet==winner) {
-    alert("You have the winning bet! You win one steamy bucket of internet, hot off the presses.");
+    $('li').addClass('winningBet');
+    $('li').append('<p id="winnerConfirm">The ' + winner + ' has won the race, and you had the winning bet!</p>');
   }else{
-    alert("You didn't win the bet. Don't visit Vegas.")
+    $('li').addClass('losingBet');
+    $('li').append('<p id="winnerConfirm">The ' + winner + ' has won the race! You did not win the bet.</p>');
   };
 
-  $('.racer').fadeOut();
+  $('.racer').fadeOut('slow');
   $('#' + winner).stop();
+
 });
 
