@@ -1,6 +1,8 @@
-$('#startRace').on('click', function() { 
-  var userBet = $('#pick').val();
+//Start the Race here!
+$('.racer').on('click', function() { 
+  var userBet = this.id;
 
+//Declare variables
   var Animal = function(n, s, f) {
     this.name = n;
     this.speed=s;
@@ -25,6 +27,7 @@ $('#startRace').on('click', function() {
   var duck = new Animal("Professor Quackingtons",4,4);
   var winner
 
+//Running loop to progress the racers
   while(turtle.notYetWon() && rabbit.notYetWon() && duck.notYetWon()) {
     turtle.run();
     rabbit.run();
@@ -35,6 +38,7 @@ $('#startRace').on('click', function() {
   console.log(rabbit.report());
   console.log(duck.report());
 
+//Determine a winner
   if (turtle.position > rabbit.position && turtle.position > duck.position) {
     winner=("turtle");
   }else if (rabbit.position > turtle.position && rabbit.position > duck.position) {
@@ -43,6 +47,7 @@ $('#startRace').on('click', function() {
     winner=("duck");
   };
 
+//Check if you had the winning bet
   if (userBet==winner) {
     $('li').addClass('winningBet');
     $('li').append('<p id="winnerConfirm">The ' + winner + ' has won the race, and you had the winning bet!</p>');
@@ -51,6 +56,7 @@ $('#startRace').on('click', function() {
     $('li').append('<p id="winnerConfirm">The ' + winner + ' has won the race! You did not win the bet.</p>');
   };
 
+//Show who won the race
   $('.racer').fadeOut('slow');
   $('#' + winner).stop();
 
